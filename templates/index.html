@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+        }
+        
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .search-box input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            text-align: left;
+        }
+        
+        .search-results h3 {
+            color: #4285f4;
+        }
+        
+        .search-results p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Engine</h1>
+        <div class="search-box">
+            <form action="/" method="POST">
+                <input type="text" name="query" placeholder="Enter your search query" required>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+        <div class="search-results">
+            {% if results %}
+                {% for result in results %}
+                    <h3>{{ result.title }}</h3>
+                    <p>{{ result.abstract }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
